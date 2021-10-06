@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_prism">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <FrameLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="0dp"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="200dp">
+                <!--<android.support.v7.widget.CardView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_margin="2dp"-->
+                    <!--app:cardBackgroundColor="@color/white"-->
+                    <!--app:cardCornerRadius="5dp">-->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@drawable/bg_prism1">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="40dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:gravity="center"
+                                android:paddingLeft="20dp"
+                                android:paddingRight="20dp"
+                                android:paddingBottom="10dp"
+                                android:textColor="@color/black"
+                                android:text="Enter Your 4-Digit Pin"
+                                android:textSize="25dp"/>
+
+
+                            <!--<View-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="1dp"-->
+                                <!--android:background="@color/grey" />-->
+
+
+                        </LinearLayout>
+                        <EditText
+                            android:id="@+id/edtMpin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Mpin"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:padding="10dp"
+                            android:editable="false"
+                            android:maxLength="4"
+                            android:lines="1"
+                            android:inputType="textPassword"
+                            android:textSize="20dp"
+                            android:drawablePadding="5dp"
+                            android:cursorVisible="false"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/grey"
+                            android:gravity="center"
+                            android:layout_marginBottom="10dp"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="60dp"
+                            android:gravity="bottom">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginLeft="1dp"
+                                android:layout_marginTop="0dp"
+                                android:layout_marginEnd="0dp"
+                                android:layout_marginRight="1dp"
+                                android:layout_marginBottom="0dp"
+                                android:background="@color/grey"
+                                android:gravity="bottom"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:layout_marginTop="1dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginRight="1dp"
+                                    android:orientation="horizontal">
+
+
+                                    <Button
+                                        android:id="@+id/one"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/button_pin"
+                                        android:text="1"
+                                        android:textSize="20sp"
+                                        android:layout_margin="1dp"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textStyle="bold" />
+
+                                    <Button
+                                        android:id="@+id/two"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/button_pin"
+                                        android:text="2"
+                                        android:layout_margin="1dp"
+                                        android:textSize="20sp"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textStyle="bold" />
+
+
+                                    <Button
+                                        android:id="@+id/three"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/button_pin"
+                                        android:text="3"
+                                        android:layout_margin="1dp"
+                                        android:textSize="20sp"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textStyle="bold" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginRight="1dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+
+
+                                    <Button
+                                        android:id="@+id/four"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/button_pin"
+                                        android:text="4"
+                                        android:layout_margin="1dp"
+                                        android:textSize="20sp"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textStyle="bold" />
+
+                                    <Button
+                                        android:id="@+id/five"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/button_pin"
+                                        android:text="5"
+                                        android:layout_margin="1dp"
+                                        android:textSize="20sp"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textStyle="bold" />
+
+                                    <Button
+                                        android:id="@+id/six"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/button_pin"
+                                        android:text="6"
+                                        android:layout_margin="1dp"
+                                        android:textSize="20sp"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textStyle="bold" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginRight="1dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+
+                                    <Button
+                                        android:id="@+id/seven"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/button_pin"
+                                        android:text="7"
+                                        android:layout_margin="1dp"
+                                        android:textSize="20sp"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textStyle="bold" />
+
+                                    <Button
+                                        android:id="@+id/eight"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/button_pin"
+                                        android:text="8"
+                                        android:layout_margin="1dp"
+                                        android:textSize="20sp"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textStyle="bold" />
+
+
+                                    <Button
+                                        android:id="@+id/nine"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/button_pin"
+                                        android:text="9"
+                                        android:layout_margin="1dp"
+                                        android:textSize="20sp"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginRight="1dp"
+                                    android:layout_marginBottom="2dp"
+                                    android:orientation="horizontal">
+
+
+                                    <Button
+                                        android:id="@+id/clear"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/button_pin"
+                                        android:text="clear"
+                                        android:layout_margin="1dp"
+                                        android:textSize="15sp"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textStyle="bold" />
+
+                                    <Button
+                                        android:id="@+id/zero"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/button_pin"
+                                        android:text="0"
+                                        android:layout_margin="1dp"
+                                        android:textSize="20sp"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textStyle="bold" />
+
+                                    <LinearLayout
+                                        android:id="@+id/back"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_margin="1dp"
+                                        android:background="@drawable/button_pin"
+                                        android:layout_weight="1">
+
+                                        <Button
+                                            android:id="@+id/btback"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginLeft="45dp"
+                                            android:layout_marginTop="20dp"
+                                            android:layout_marginRight="55dp"
+                                            android:layout_marginBottom="20dp"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/ic_backspace" />
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+
+                <!--</android.support.v7.widget.CardView>-->
+
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal"
+                android:gravity="right"
+                >
+
+                <TextView
+                    android:id="@+id/txtv_logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/logoutwhite"
+                    android:layout_alignParentTop="true"
+                    android:drawablePadding="8dp"
+                    android:text="Logout"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                     />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_gravity=""
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/iv_profilepic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:padding="40dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/applogo" />
+
+            </LinearLayout>
+        </FrameLayout>
+    </RelativeLayout>
+</LinearLayout>
+
+<!--<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="@drawable/bg_mpin">-->
+
+
+    <!--<android.support.constraint.Guideline-->
+        <!--android:id="@+id/guideline42"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical"-->
+        <!--app:layout_constraintGuide_percent="0.96" />-->
+
+    <!--<android.support.constraint.Guideline-->
+        <!--android:id="@+id/guideline43"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical"-->
+        <!--app:layout_constraintGuide_percent="0.04" />-->
+
+    <!--<android.support.constraint.Guideline-->
+        <!--android:id="@+id/guideline44"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--app:layout_constraintGuide_percent="0.96" />-->
+
+    <!--<android.support.constraint.Guideline-->
+        <!--android:id="@+id/guideline45"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--app:layout_constraintGuide_percent="0.02872777" />-->
+
+    <!--<android.support.constraint.Guideline-->
+        <!--android:id="@+id/guideline46"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--app:layout_constraintGuide_percent="0.36" />-->
+
+    <!--<android.support.constraint.Guideline-->
+        <!--android:id="@+id/guideline47"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--app:layout_constraintGuide_percent="0.44186047" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/txtHeader"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_gravity="center_vertical"-->
+        <!--android:gravity="center_horizontal|center_vertical"-->
+        <!--android:text="Mpin Verification"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="30sp"-->
+        <!--app:fontFamily="sans-serif-medium"-->
+        <!--app:layout_constraintBottom_toTopOf="@+id/guideline47"-->
+        <!--app:layout_constraintEnd_toStartOf="@+id/guideline42"-->
+        <!--app:layout_constraintStart_toStartOf="@+id/guideline43"-->
+        <!--app:layout_constraintTop_toTopOf="@+id/guideline46" />-->
+
+    <!--<android.support.constraint.Guideline-->
+        <!--android:id="@+id/guideline48"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--app:layout_constraintGuide_percent="0.46" />-->
+
+    <!--<android.support.constraint.Guideline-->
+        <!--android:id="@+id/guideline49"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--app:layout_constraintGuide_percent="0.54" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/textView5"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_below="@+id/txtHeader"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:gravity="center_horizontal"-->
+        <!--android:text="Unlock with your pin code"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="18sp"-->
+        <!--app:layout_constraintBottom_toTopOf="@+id/guideline49"-->
+        <!--app:layout_constraintEnd_toStartOf="@+id/guideline42"-->
+        <!--app:layout_constraintStart_toStartOf="@+id/guideline43"-->
+        <!--app:layout_constraintTop_toTopOf="@+id/guideline48" />-->
+
+    <!--<android.support.constraint.Guideline-->
+        <!--android:id="@+id/guideline50"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--app:layout_constraintGuide_percent="0.58" />-->
+
+    <!--<android.support.constraint.Guideline-->
+        <!--android:id="@+id/guideline51"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--app:layout_constraintGuide_percent="0.69" />-->
+
+    <!--<android.support.design.widget.TextInputLayout-->
+        <!--android:id="@+id/txtMpin"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="0dp"-->
+        <!--app:passwordToggleEnabled="true"-->
+        <!--app:passwordToggleTint="@color/white"-->
+        <!--android:textColorHint="@android:color/white"-->
+        <!--app:backgroundTint="@android:color/white"-->
+        <!--app:hintTextAppearance="@style/whiteHint"-->
+        <!--app:layout_constraintBottom_toTopOf="@+id/guideline51"-->
+        <!--app:layout_constraintEnd_toStartOf="@+id/guideline42"-->
+        <!--app:layout_constraintStart_toStartOf="@+id/guideline43"-->
+        <!--app:layout_constraintTop_toTopOf="@+id/guideline50">-->
+
+        <!--<android.support.design.widget.TextInputEditText-->
+            <!--android:id="@+id/edtMpin"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:hint="Enter Mpin"-->
+            <!--android:inputType="numberPassword"-->
+            <!--android:maxLength="4"-->
+            <!--android:padding="10dp"-->
+            <!--android:paddingRight="14dp"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--app:backgroundTint="#944385" />-->
+    <!--</android.support.design.widget.TextInputLayout>-->
+
+    <!--<android.support.constraint.Guideline-->
+        <!--android:id="@+id/guideline52"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--app:layout_constraintGuide_percent="0.73" />-->
+
+    <!--<android.support.constraint.Guideline-->
+        <!--android:id="@+id/guideline53"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--app:layout_constraintGuide_percent="0.82" />-->
+
+    <!--<android.support.constraint.Guideline-->
+        <!--android:id="@+id/guideline54"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical"-->
+        <!--app:layout_constraintGuide_percent="0.33" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/btnMpin"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:text="Submit"-->
+        <!--android:textAllCaps="false"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:background="@drawable/button_shape"-->
+        <!--app:layout_constraintBottom_toTopOf="@+id/guideline53"-->
+        <!--app:layout_constraintEnd_toStartOf="@+id/guideline54"-->
+        <!--app:layout_constraintStart_toStartOf="@+id/guideline43"-->
+        <!--app:layout_constraintTop_toTopOf="@+id/guideline52"-->
+        <!--app:layout_constraintVertical_bias="0.6" />-->
+<!--</android.support.constraint.ConstraintLayout>-->

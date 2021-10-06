@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/transparent">
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:layout_weight="2"
+                android:id="@+id/lnr_product_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:id="@+id/txt_product_name"
+                    android:gravity="left"
+                    android:textAlignment="gravity"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+            />
+        </LinearLayout>
+
+        <View
+            android:background="?android:attr/dividerVertical"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+
+
+
+        <LinearLayout
+            android:layout_weight="2.08"
+            android:id="@+id/lnr_open_balance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/txt_open_balance"
+                android:textAlignment="center"
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+        <View
+            android:background="?android:attr/dividerVertical"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+
+
+
+        <LinearLayout
+            android:layout_weight="2.09"
+            android:id="@+id/lnr_received"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/txt_received"
+                android:textAlignment="center"
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <View
+            android:background="?android:attr/dividerVertical"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+
+
+
+        <LinearLayout
+            android:layout_weight="2.09"
+            android:id="@+id/lnr_assigned"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/txt_assigned"
+                android:textAlignment="center"
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <View
+            android:background="?android:attr/dividerVertical"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+
+
+
+        <LinearLayout
+            android:layout_weight="2.09"
+            android:id="@+id/lnr_resolved"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/txt_resolved"
+                android:textAlignment="center"
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+        <View
+            android:background="?android:attr/dividerVertical"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:layout_weight="2.09"
+            android:id="@+id/lnr_retrnd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/txt_retrnd"
+                android:textAlignment="center"
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <View
+            android:background="?android:attr/dividerVertical"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:layout_weight="2.05"
+            android:id="@+id/lnr_sftwr_pending"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/txt_sftwr_pending"
+                android:textAlignment="center"
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <View
+            android:background="?android:attr/dividerVertical"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:layout_weight="2.05"
+            android:id="@+id/lnr_client_wait"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/txt_client_wait"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text=""
+                android:textAlignment="center" />
+        </LinearLayout>
+
+        <View
+            android:background="?android:attr/dividerVertical"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:layout_weight="2.1"
+            android:id="@+id/lnr_closed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/txt_closed"
+                android:textAlignment="center"
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+        <View
+            android:background="?android:attr/dividerVertical"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:layout_weight="2.09"
+            android:id="@+id/lnr_agent_pend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/txt_agent_pend"
+                android:textAlignment="center"
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <View
+            android:background="?android:attr/dividerVertical"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:layout_weight="2.09"
+            android:id="@+id/lnr_actual_pend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/txt_actual_pend"
+                android:textAlignment="center"
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+
+        <View
+                android:background="?android:attr/dividerVertical"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"/>
+
+
+
+        <LinearLayout
+                android:layout_weight="1.99"
+                android:id="@+id/lnr_total_ticket"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                    android:id="@+id/txt_total_ticket"
+                    android:textAlignment="center"
+                android:text="total ticket"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+            />
+        </LinearLayout>
+
+        <View
+                android:background="?android:attr/dividerVertical"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+            android:visibility="gone"/>
+
+        <LinearLayout
+                android:layout_weight="1.99"
+                android:id="@+id/lnr_opening_ticket"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal"
+        android:visibility="gone">
+
+            <TextView
+                    android:id="@+id/txt_opening_ticket"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+            />
+        </LinearLayout>   <View
+                android:background="?android:attr/dividerVertical"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"/>
+
+        <LinearLayout
+                android:layout_weight="1.99"
+                android:id="@+id/lnr_closed_ticket"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal"
+        android:visibility="gone">
+
+            <TextView
+                    android:id="@+id/txt_closed_ticket"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+            />
+        </LinearLayout>
+
+        <View
+                android:background="?android:attr/dividerVertical"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+            android:visibility="gone"/>
+
+        <LinearLayout
+                android:layout_weight="1.99"
+                android:id="@+id/lnr_resolved_ticket"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal"
+        android:visibility="gone">
+
+            <TextView
+                    android:id="@+id/txt_resolved_ticket"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+        <View
+                android:background="?android:attr/dividerVertical"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"/>
+
+        <LinearLayout
+                android:layout_weight="1.99"
+                android:id="@+id/lnr_software_pending"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                    android:id="@+id/txt_software_pending"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <View
+        android:background="?android:attr/dividerVertical"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:visibility="gone"/>
+</LinearLayout>

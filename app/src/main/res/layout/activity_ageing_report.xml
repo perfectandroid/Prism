@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.AgeingReportActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="60dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:id="@+id/lnr_client"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Choose client"/>
+
+                        <android.support.v7.widget.CardView
+                            android:layout_margin="1dp"
+                            app:cardElevation="5dp"
+                            app:cardCornerRadius="8dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <android.support.v7.widget.CardView
+                                    android:layout_weight="4"
+                                    app:cardCornerRadius="8dp"
+                                    app:cardElevation="8dp"
+                                    app:cardBackgroundColor="@color/colorPrimary"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/ic_client"
+                                        android:scaleType="center"
+                                        android:background="@android:color/transparent"/>
+
+                                </android.support.v7.widget.CardView>
+
+                                <TextView
+                                    android:layout_weight="1"
+                                    android:id="@+id/txt_client"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Choose Client"
+                                    android:background="@drawable/shape_button"
+                                    android:paddingBottom="10dp"
+                                    android:paddingTop="10dp"
+                                    android:gravity="center_horizontal"/>
+
+                            </LinearLayout>
+
+
+                        </android.support.v7.widget.CardView>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lnr_product"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textSize="15dp"
+                            android:textColor="@color/black"
+                            android:layout_marginBottom="10dp"
+                            android:text="Choose product"/>
+
+
+                        <android.support.v7.widget.CardView
+                            android:layout_margin="1dp"
+                            app:cardElevation="5dp"
+                            app:cardCornerRadius="8dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <LinearLayout
+                                android:id="@+id/llchoosePrdt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:background="@drawable/view_bg">
+
+                                <android.support.v7.widget.CardView
+                                    android:layout_weight="4"
+                                    app:cardCornerRadius="8dp"
+                                    app:cardElevation="8dp"
+                                    app:cardBackgroundColor="@color/colorPrimary"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/ic_product"
+                                        android:padding="5dp"
+                                        android:background="@android:color/transparent"/>
+
+                                </android.support.v7.widget.CardView>
+
+                                <TextView
+                                    android:id="@+id/txt_product"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Choose Product"
+                                    android:layout_weight="1"
+                                    android:paddingBottom="10dp"
+                                    android:paddingTop="10dp"
+                                    android:gravity="center_horizontal"/>
+
+                            </LinearLayout>
+
+                        </android.support.v7.widget.CardView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lnr_agent"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Choose agent"/>
+
+                        <android.support.v7.widget.CardView
+                            android:layout_margin="1dp"
+                            app:cardElevation="5dp"
+                            app:cardCornerRadius="8dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <android.support.v7.widget.CardView
+                                    android:layout_weight="4"
+                                    app:cardCornerRadius="8dp"
+                                    app:cardElevation="8dp"
+                                    app:cardBackgroundColor="@color/colorPrimary"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/ic_new_agent"
+                                        android:scaleType="center"
+                                        android:background="@android:color/transparent"/>
+
+
+                                </android.support.v7.widget.CardView>
+
+
+                                <TextView
+                                    android:id="@+id/txt_agent"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Choose Agent"
+                                    android:layout_weight="1"
+                                    android:paddingBottom="10dp"
+                                    android:paddingTop="10dp"
+                                    android:background="@drawable/shape_button"
+                                    android:gravity="center_horizontal"/>
+
+                            </LinearLayout>
+
+                        </android.support.v7.widget.CardView>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:id="@+id/lnr_date_sort"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="5dp"
+                        android:text="Choose From &amp; To Date"/>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/crd_from_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="5dp"
+                        android:layout_margin="1dp">
+
+                        <LinearLayout
+                            android:id="@+id/llfromdate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/view_bg"
+                            android:orientation="horizontal">
+
+                            <android.support.v7.widget.CardView
+                                android:layout_weight="4"
+                                app:cardCornerRadius="8dp"
+                                app:cardElevation="8dp"
+                                app:cardBackgroundColor="@color/colorPrimary"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/ic_calender"
+                                    android:scaleType="center"
+                                    android:background="@android:color/transparent"/>
+
+
+                            </android.support.v7.widget.CardView>
+
+
+                            <TextView
+                                android:id="@+id/txt_from_date"
+                                android:hint="Choose From Date"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:paddingBottom="10dp"
+                                android:paddingTop="10dp"
+                                android:gravity="center_horizontal"/>
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="5dp"
+                        android:layout_margin="1dp">
+
+                        <LinearLayout
+                            android:id="@+id/lltodate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/view_bg"
+                            android:orientation="horizontal">
+
+                            <android.support.v7.widget.CardView
+                                android:layout_weight="4"
+                                app:cardCornerRadius="8dp"
+                                app:cardElevation="8dp"
+                                app:cardBackgroundColor="@color/colorPrimary"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/ic_calender"
+                                    android:scaleType="center"
+                                    android:background="@android:color/transparent"/>
+
+                            </android.support.v7.widget.CardView>
+
+
+                            <TextView
+                                android:id="@+id/txt_to_date"
+                                android:hint="Choose To Date"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:paddingBottom="10dp"
+                                android:paddingTop="10dp"
+                                android:gravity="center_horizontal"/>
+
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lnr_ageing_days"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Ageing days"/>
+
+                    <EditText
+                        android:id="@+id/edt_ageing_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="50dp"
+                        android:minHeight="50dp"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:layout_margin="10dp"
+                        android:maxLength="3"
+                        android:background="@drawable/border_button"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout
+            android:id="@+id/change_location_bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/colorPrimary"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/llRest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+                   <TextView
+                        android:id="@+id/tvFavourites"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="RESET"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp" />
+                </LinearLayout>
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@color/grey" />
+                <LinearLayout
+                    android:id="@+id/llSubmit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+                 <TextView
+                        android:id="@+id/tvaddcart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_margin="5dp"
+                        android:text="SUBMIT"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".Activity.TicketDetailsActivity">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="5dp"
+        app:cardElevation="2dp"
+        android:layout_gravity="right"
+        android:layout_weight="1.25"
+        android:gravity="right"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        app:cardCornerRadius="5dp">
+        <LinearLayout
+            android:id="@+id/ll_chat_last"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bubble_in"
+            android:orientation="vertical">
+
+              <TextView
+                android:id="@+id/tv_chat_you"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                  android:textStyle="bold"
+                android:text="You"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_chat_clmeessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Hi Mike. I’m there. We can connect now."
+                android:textColor="#4a4a4a"
+                android:textSize="15sp"
+                android:gravity="left"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/tv_AgentNotes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Hi Mike. I’m there. We can connect now."
+                android:textColor="#4a4a4a"
+                android:textSize="15sp"
+                android:gravity="left"
+                android:textStyle="normal" />
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:text=""
+                android:textColor="#4a4a4a"
+                android:drawableLeft="@drawable/status"
+                android:drawablePadding="5dp"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:textStyle="normal" />
+            <TextView
+                android:id="@+id/tv_hrtaken"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text=""
+                android:textColor="#4a4a4a"
+                android:drawableLeft="@drawable/hrtaken"
+                android:drawablePadding="5dp"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:textStyle="normal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_attachtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="10dp"
+                android:text="Attached File : "
+                android:textColor="#4a4a4a"
+                android:drawableLeft="@drawable/attach"
+                android:drawablePadding="5dp"
+                android:textSize="12sp"
+                android:gravity="left"
+                android:textStyle="normal" />
+            <TextView
+                android:id="@+id/tv_attach"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginRight="10dp"
+                android:text=""
+                android:textColor="#4a4a4a"
+                android:textSize="12sp"
+                android:gravity="left"
+                android:textStyle="normal" />
+        </LinearLayout>
+            <TextView
+                android:id="@+id/tv_chat_ctime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="17:45"
+                android:textColor="#4a4a4a"
+                android:textSize="10sp"
+                android:textStyle="normal" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:gravity="left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/ll_privacy_last"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_weight="1.25"
+            android:background="@drawable/shadow"
+            android:gravity="left"
+            android:layout_marginRight="75dp"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp">
+
+            &lt;!&ndash;   <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#417505">
+
+            </View>&ndash;&gt;
+
+            <TextView
+                android:id="@+id/tv_chat_You"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="25dp"
+                android:text="You"
+                android:textColor="#417505"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_chat_meessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Hi Mike. I’m there. We can connect now."
+                android:textColor="#4a4a4a"
+                android:textSize="12sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/tv_chat_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="right"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="17:45"
+                android:textColor="#4a4a4a"
+                android:textSize="10sp"
+                android:textStyle="normal" />
+        </LinearLayout>
+    </RelativeLayout>-->

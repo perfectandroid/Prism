@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="1dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:background="#fff"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_popupchange"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="Change Pin"
+            android:textColor="@color/colorPrimary"
+            android:textSize="22sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#979797" />
+
+        <LinearLayout
+            android:id="@+id/ll_changephone_hide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:background="#fff"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/txtCurrentPin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_weight=".75"
+                android:backgroundTint="@color/colorPrimary"
+                android:inputType="numberPassword"
+                android:maxLength="4"
+                android:hint="Old Pin" />
+
+            <EditText
+                android:id="@+id/txtNewPin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+
+                android:layout_weight=".75"
+                android:backgroundTint="@color/colorPrimary"
+                android:hint="New Pin"
+                android:inputType="numberPassword"
+                android:maxLength="4"
+
+                android:text="" />
+            <EditText
+                android:id="@+id/txtConfirmPin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+
+                android:layout_weight=".75"
+                android:backgroundTint="@color/colorPrimary"
+                android:hint="Confirm New Pin"
+                android:inputType="numberPassword"
+                android:maxLength="4"
+
+                android:text="" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".5"
+                android:background="@color/colorPrimary"
+                android:text="CANCEL"
+                android:textColor="#fff" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
+                android:layout_weight=".005"
+                android:background="#fff" />
+
+            <Button
+                android:id="@+id/btn_ok"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".5"
+                android:background="@color/colorPrimary"
+                android:text="SAVE"
+                android:textColor="#fff" />
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
+
+
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--android:orientation="vertical"-->
+    <!--android:background="@drawable/curve_shape"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+
+
+    <!--<TextView-->
+        <!--android:text="Change Pin"-->
+        <!--android:textSize="30sp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:gravity="center"-->
+        <!--android:layout_height="wrap_content"/>-->
+
+
+    <!--<android.support.design.widget.TextInputLayout-->
+        <!--app:passwordToggleEnabled="true"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:layout_marginLeft="30dp"-->
+        <!--android:layout_marginRight="30dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">-->
+
+
+        <!--<android.support.design.widget.TextInputEditText-->
+            <!--android:id="@+id/txtCurrentPin"-->
+            <!--android:hint="Enter Current Pin"-->
+            <!--android:textColorHint="@color/purple"-->
+            <!--android:textColor="@color/purple"-->
+            <!--android:maxLength="4"-->
+            <!--android:textCursorDrawable="@drawable/color_cursor"-->
+            <!--app:backgroundTint="@color/purple"-->
+            <!--android:inputType="numberPassword"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"/>-->
+
+
+    <!--</android.support.design.widget.TextInputLayout>-->
+
+
+    <!--<android.support.design.widget.TextInputLayout-->
+        <!--app:passwordToggleEnabled="true"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:layout_marginLeft="30dp"-->
+        <!--android:layout_marginRight="30dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">-->
+
+
+        <!--<android.support.design.widget.TextInputEditText-->
+            <!--android:id="@+id/txtNewPin"-->
+            <!--android:textColor="@color/purple"-->
+            <!--android:textColorHint="@color/purple"-->
+            <!--app:backgroundTint="@color/purple"-->
+            <!--android:hint="Enter New Pin"-->
+            <!--android:maxLength="4"-->
+            <!--android:textCursorDrawable="@drawable/color_cursor"-->
+            <!--android:inputType="numberPassword"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"/>-->
+
+
+    <!--</android.support.design.widget.TextInputLayout>-->
+
+
+    <!--<android.support.design.widget.TextInputLayout-->
+        <!--app:passwordToggleEnabled="true"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:layout_marginLeft="30dp"-->
+        <!--android:layout_marginRight="30dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">-->
+
+
+        <!--<android.support.design.widget.TextInputEditText-->
+            <!--android:id="@+id/txtConfirmPin"-->
+            <!--android:textColor="@color/purple"-->
+            <!--android:textColorHint="@color/purple"-->
+            <!--app:backgroundTint="@color/purple"-->
+            <!--android:hint="Confirm New Pin"-->
+            <!--android:maxLength="4"-->
+            <!--android:textCursorDrawable="@drawable/color_cursor"-->
+            <!--android:inputType="numberPassword"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"/>-->
+
+
+    <!--</android.support.design.widget.TextInputLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+
+        <!--<Button-->
+            <!--android:layout_weight="1"-->
+            <!--android:id="@+id/btn_ok"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="right"-->
+            <!--android:text="Ok"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:background="@drawable/button_shape"-->
+            <!--android:textColor="@color/white"/>-->
+
+        <!--<Button-->
+            <!--android:layout_weight="1"-->
+            <!--android:id="@+id/btn_cancel"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="right"-->
+            <!--android:text="Cancel"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:background="@drawable/button_shape"-->
+            <!--android:textColor="@color/white"/>-->
+
+
+    <!--</LinearLayout>-->
+
+
+
+
+<!--</LinearLayout>-->

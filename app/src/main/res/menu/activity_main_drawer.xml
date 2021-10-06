@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navHome"
+            android:icon="@drawable/home"
+            android:title="Home" />
+        <item
+            android:id="@+id/navReport"
+            android:icon="@drawable/report"
+            android:title="Report" />
+        <item
+            android:id="@+id/navLocationReport"
+            android:icon="@drawable/locationreport"
+            android:title="Location Report" />
+        <item
+            android:id="@+id/navLocationTracking"
+            android:icon="@drawable/ic_location_searching"
+            android:title="Location Tracking" />
+        <item
+            android:id="@+id/navTotalTicket"
+            android:icon="@drawable/tickets"
+            android:title="Total Ticket Count" />
+        <item
+            android:id="@+id/navAssignTicket"
+            android:icon="@drawable/ic_resolved"
+            android:title="Create Ticket" />
+    </group>
+
+    <item android:title="Account">
+        <menu>
+            <item
+                android:id="@+id/navPinchange"
+                android:icon="@drawable/pinchange"
+                android:title="Pin Change" />
+            <item
+                android:id="@+id/navLogout"
+                android:icon="@drawable/logout"
+                android:title="Logout" />
+            <item
+                android:id="@+id/navQuit"
+                android:icon="@drawable/clear"
+                android:title="Quit" />
+        </menu>
+    </item>
+
+</menu>
