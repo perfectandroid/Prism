@@ -119,7 +119,8 @@ public class HomeActivity extends AppCompatActivity
         setRegViews();
         getHomeData();
         SharedPreferences pref = getApplicationContext().getSharedPreferences(Config.SHARED_PREF1, 0);
-        tvUsername.setText("Welcome "+pref.getString("agentName", null));
+        String name = "Welcome "+pref.getString("agentName", null);
+        tvUsername.setText(name);
 
 
 
