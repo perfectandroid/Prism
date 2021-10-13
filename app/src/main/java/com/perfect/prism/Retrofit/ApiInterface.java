@@ -80,6 +80,10 @@ public interface ApiInterface {
     @POST("Report/AgentLocationHourDetails")
     Call<String>agentLocationHourDetails(@Body  RequestBody body);
 
+    @POST("Agent/AgentQRLogin")
+    Call<String>agentqrlogin(@Body  RequestBody body);
+
+
    /* @Multipart
     @POST("agent/UploadAction")
     Call<String> addRemark(@Part("ResponseType") RequestBody ResponseType,

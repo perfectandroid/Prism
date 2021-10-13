@@ -25,11 +25,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -45,6 +48,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.perfect.prism.Adapter.SearchProductAdapter;
+import com.perfect.prism.Model.ProductModel;
 import com.perfect.prism.R;
 import com.perfect.prism.Retrofit.ApiInterface;
 import com.perfect.prism.Utility.Config;
@@ -64,6 +69,7 @@ import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -123,7 +129,7 @@ public class HomeActivity extends AppCompatActivity
         tvUsername.setText(name);
 
 
-
+        getQRcode("12345");
 
     }
 
@@ -1147,13 +1153,87 @@ public class HomeActivity extends AppCompatActivity
 
             } else {
                 Log.e("Scan", "Scanned");
-
+                String qr = result.getContents();
                // tv_qr_readTxt.setText(result.getContents());
                 Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+              //  getQRcode("qr");
             }
         } else {
             // This is important, otherwise the result will not be passed to the fragment
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
+
+    private void getQRcode(String qr) {
+
+            if (new InternetUtil(this).isInternetOn()) {
+                try{
+                    OkHttpClient client = new OkHttpClient.Builder()
+                            .sslSocketFactory(getSSLSocketFactory())
+                            .hostnameVerifier(getHostnameVerifier())
+                            .build();
+                    Gson gson = new GsonBuilder()
+                            .setLenient()
+                            .create();
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl(Config.BASEURL)
+                            .addConverterFactory(ScalarsConverterFactory.create())
+                            .addConverterFactory(GsonConverterFactory.create(gson))
+                            .client(client)
+                            .build();
+                    ApiInterface apiService = retrofit.create(ApiInterface.class);
+                    final JSONObject requestObject1 = new JSONObject();
+                    try {
+                        requestObject1.put("QRCode", qr);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), requestObject1.toString());
+                    Call<String> call = apiService.agentqrlogin(body);
+                    call.enqueue(new Callback<String>() {
+                        @Override public void onResponse(Call<String> call, retrofit2.Response<String> response) {
+                            try {
+                                JSONObject jObject = new JSONObject(response.body());
+                                Log.i("Response",response.body());
+                                String statuscode = jObject.getString("StatusCode");
+
+                                if(statuscode.equals("0"))
+                                {
+                                    JSONObject jobj = jObject.getJSONObject("AgentQRLogin");
+
+                                    String response2 = jobj.getString("ResponseMessage");
+                                    if (response2.equals("null")) {
+                                    } else {
+                                        Toast.makeText(getApplicationContext(),response2,Toast.LENGTH_LONG).show();
+
+                                    }
+
+                                }
+                                else
+                                {
+                                    Toast.makeText(getApplicationContext(),jObject.getString("EXMessage"),Toast.LENGTH_LONG).show();
+                                }
+
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        @Override
+                        public void onFailure(Call<String> call, Throwable t) {}
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }else {
+                Toast.makeText(this,"No internet connection",Toast.LENGTH_SHORT).show();
+            }
+
+
+
+
+
+    }
+
+
 }

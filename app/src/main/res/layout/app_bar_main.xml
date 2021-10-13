@@ -23,7 +23,7 @@
                 android:layout_height="30dp"
                 android:scaleType="fitXY"
                 android:drawablePadding="10dp"
-                android:background="@drawable/qrcode"
+                android:background="@drawable/qr1"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="15dp"
                 android:paddingTop="20dp"
