@@ -130,7 +130,6 @@ public class TicketCreationActivity extends AppCompatActivity implements View.On
         setRegViews();
         Log.e(TAG,"Start   ");
         ticketNumberGenerate();
-
         Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("GMT+1:00"));
         Date currentLocalTime = cal.getTime();
         DateFormat date = new SimpleDateFormat("hh:mm:ss");
@@ -138,6 +137,7 @@ public class TicketCreationActivity extends AppCompatActivity implements View.On
         String currentTime = new SimpleDateFormat("hh:mm:ss", Locale.getDefault()).format(new Date());
         String localTime = date.format(currentLocalTime);
         txt_date.setText(getDateTime("dd-MM-yyyy")+" "+currentTime);
+
     }
 
     private void initiateViews() {
