@@ -3,6 +3,7 @@ package com.perfect.prism.Activity;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -59,6 +60,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.KeyManagementException;
@@ -129,7 +131,7 @@ public class HomeActivity extends AppCompatActivity
         tvUsername.setText(name);
 
 
-        getQRcode("12345");
+     //   getQRcode("12345");
 
     }
 
@@ -1156,7 +1158,7 @@ public class HomeActivity extends AppCompatActivity
                 String qr = result.getContents();
                // tv_qr_readTxt.setText(result.getContents());
                 Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
-              //  getQRcode("qr");
+                getQRcode(qr);
             }
         } else {
             // This is important, otherwise the result will not be passed to the fragment
@@ -1204,6 +1206,7 @@ public class HomeActivity extends AppCompatActivity
                                     String response2 = jobj.getString("ResponseMessage");
                                     if (response2.equals("null")) {
                                     } else {
+                                       // alertMessage1("", response2);
                                         Toast.makeText(getApplicationContext(),response2,Toast.LENGTH_LONG).show();
 
                                     }
@@ -1211,6 +1214,7 @@ public class HomeActivity extends AppCompatActivity
                                 }
                                 else
                                 {
+                                  //  alertMessage1("", jObject.getString("EXMessage"));
                                     Toast.makeText(getApplicationContext(),jObject.getString("EXMessage"),Toast.LENGTH_LONG).show();
                                 }
 
@@ -1235,5 +1239,49 @@ public class HomeActivity extends AppCompatActivity
 
     }
 
+    private void alertMessage1(String msg1, final String msg2) {
 
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(HomeActivity.this);
+
+        LayoutInflater inflater =this.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.alert_layout, null);
+        dialogBuilder.setView(dialogView);
+
+        final AlertDialog alertDialog = dialogBuilder.create();
+        TextView tv_share =  dialogView.findViewById(R.id.tv_share);
+        TextView tv_msg =  dialogView.findViewById(R.id.txt1);
+        //  TextView tv_msg2 =  dialogView.findViewById(R.id.txt2);
+        if(msg1.equals(""))
+        {
+            tv_msg.setText(msg2);
+        }
+        else
+        {
+            tv_msg.setText(msg1);
+        }
+        //      tv_msg.setText(msg1);
+        //  tv_msg2.setText(msg2);
+        TextView tv_cancel =  dialogView.findViewById(R.id.tv_cancel);
+        tv_share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // displaypdf(msg2);
+          /*     Intent viewDownloadsIntent = new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS);
+                startActivity(viewDownloadsIntent);*/
+
+
+                alertDialog.dismiss();
+
+            }
+        });
+        tv_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //  finishAffinity();
+
+            }
+        });
+        alertDialog.show();
+    }
 }
