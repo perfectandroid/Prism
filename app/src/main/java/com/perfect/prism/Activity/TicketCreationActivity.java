@@ -128,7 +128,7 @@ public class TicketCreationActivity extends AppCompatActivity implements View.On
         setContentView(R.layout.activity_ticket_creation);
         initiateViews();
         setRegViews();
-        Log.e(TAG,"Start   ");
+         Log.e(TAG,"Start   ");
         ticketNumberGenerate();
         Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("GMT+1:00"));
         Date currentLocalTime = cal.getTime();
