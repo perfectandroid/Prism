@@ -32,6 +32,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -42,6 +43,8 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import com.perfect.prism.R;
 import com.perfect.prism.Retrofit.ApiInterface;
 import com.perfect.prism.Utility.Config;
@@ -87,9 +90,9 @@ public class HomeActivity extends AppCompatActivity
     String TAG="HomeActivity";
     private ProgressDialog progressDialog;
     TextView tvUsername, tvSoftwarePending, tvResolved, tvClosed, tvPending, tvOpen,tvclientSidewaiting;
+    ImageView txtvQR;
     LinearLayout llopen,llPending, llClosed, llresolved,llsoftwarepending,llclientSidewaiting;
-
-      String latitude,longitude;
+    String latitude,longitude;
     protected double lattitude;
     protected double longittude;
     protected String locName;
@@ -262,6 +265,7 @@ public class HomeActivity extends AppCompatActivity
         llresolved=findViewById(R.id.llresolved);
         llsoftwarepending=findViewById(R.id.llsoftwarepending);
         llclientSidewaiting=findViewById(R.id.llclientSidewaiting);
+        txtvQR=findViewById(R.id.txtvQR);
     }
 
     private void setRegViews() {
@@ -271,6 +275,7 @@ public class HomeActivity extends AppCompatActivity
         llresolved.setOnClickListener(this);
         llsoftwarepending.setOnClickListener(this);
         llclientSidewaiting.setOnClickListener(this);
+        txtvQR.setOnClickListener(this);
     }
 
     @Override
@@ -340,7 +345,16 @@ public class HomeActivity extends AppCompatActivity
         } else if (id == R.id.navAssignTicket) {
             startActivity(new Intent(HomeActivity.this, TicketCreationActivity.class));
 
-        } else if (id == R.id.navPinchange) {
+        } else if (id == R.id.scanqr) {
+            IntentIntegrator integrator = new IntentIntegrator(HomeActivity.this);
+            integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+            integrator.setPrompt("Scan");
+            integrator.setCameraId(0);
+            integrator.setBeepEnabled(false);
+            integrator.setBarcodeImageEnabled(false);
+            integrator.initiateScan();
+
+        }else if (id == R.id.navPinchange) {
             callChangePinDialog();
         } else if (id == R.id.navLogout) {
             doLogout();
@@ -616,6 +630,16 @@ public class HomeActivity extends AppCompatActivity
                         startActivity(intent);
                     }
                 }
+                break;
+            case R.id.txtvQR:
+
+                IntentIntegrator integrator = new IntentIntegrator(HomeActivity.this);
+                integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+                integrator.setPrompt("Scan");
+                integrator.setCameraId(0);
+                integrator.setBeepEnabled(false);
+                integrator.setBarcodeImageEnabled(false);
+                integrator.initiateScan();
                 break;
             case R.id.llClosed:
                 if(tvClosed.getText().toString().equals("0")){
@@ -1112,5 +1136,23 @@ public class HomeActivity extends AppCompatActivity
         }
 
 
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if(result != null) {
+            if(result.getContents() == null) {
+                Log.e("Scan*******", "Cancelled scan");
+
+            } else {
+                Log.e("Scan", "Scanned");
+
+               // tv_qr_readTxt.setText(result.getContents());
+                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+            }
+        } else {
+            // This is important, otherwise the result will not be passed to the fragment
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 }

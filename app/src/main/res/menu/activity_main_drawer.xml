@@ -28,6 +28,10 @@
             android:id="@+id/navAssignTicket"
             android:icon="@drawable/ic_resolved"
             android:title="Create Ticket" />
+        <item
+            android:id="@+id/scanqr"
+            android:icon="@drawable/qrblack"
+            android:title="Scan &amp; Proceed" />
     </group>
 
     <item android:title="Account">

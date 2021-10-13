@@ -70,7 +70,10 @@ import java.security.cert.X509Certificate;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
@@ -128,7 +131,13 @@ public class TicketCreationActivity extends AppCompatActivity implements View.On
         Log.e(TAG,"Start   ");
         ticketNumberGenerate();
 
-        txt_date.setText(getDateTime("dd-MM-yyyy"));
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("GMT+1:00"));
+        Date currentLocalTime = cal.getTime();
+        DateFormat date = new SimpleDateFormat("hh:mm:ss");
+        date.setTimeZone(TimeZone.getTimeZone("GMT+1:00"));
+        String currentTime = new SimpleDateFormat("hh:mm:ss", Locale.getDefault()).format(new Date());
+        String localTime = date.format(currentLocalTime);
+        txt_date.setText(getDateTime("dd-MM-yyyy")+" "+currentTime);
     }
 
     private void initiateViews() {
