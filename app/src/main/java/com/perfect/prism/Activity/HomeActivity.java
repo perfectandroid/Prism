@@ -1157,7 +1157,7 @@ public class HomeActivity extends AppCompatActivity
                 Log.e("Scan", "Scanned");
                 String qr = result.getContents();
                // tv_qr_readTxt.setText(result.getContents());
-                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+              //  Toast.makeText(this, "Scanned: " + qr, Toast.LENGTH_LONG).show();
                 getQRcode(qr);
             }
         } else {
@@ -1186,7 +1186,14 @@ public class HomeActivity extends AppCompatActivity
                     ApiInterface apiService = retrofit.create(ApiInterface.class);
                     final JSONObject requestObject1 = new JSONObject();
                     try {
+
+                        SharedPreferences pref1 = getApplicationContext().getSharedPreferences(Config.SHARED_PREF3, 0);
+
+                        requestObject1.put("Agent_ID", pref1.getString("Agent_ID", null));
                         requestObject1.put("QRCode", qr);
+
+                        Log.e("TAG", "requestObject1  171   " + requestObject1);
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
