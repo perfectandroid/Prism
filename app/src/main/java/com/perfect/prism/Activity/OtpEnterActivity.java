@@ -452,6 +452,7 @@ public class OtpEnterActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onResume(){
+
         super.onResume();
         if (mRequestingLocationUpdates && checkPermissions()){
             startLocationUpdates();

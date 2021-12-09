@@ -134,7 +134,8 @@ public class TicketListActivity extends AppCompatActivity implements View.OnClic
                 break;
             case R.id.btn_stop:
                 this.mStartStopStatus = "2";
-                getCurrentlocation();
+                fetchLocation();
+               // getCurrentlocation();
                 //     startStopWork(1,3,"");
                 break;
 

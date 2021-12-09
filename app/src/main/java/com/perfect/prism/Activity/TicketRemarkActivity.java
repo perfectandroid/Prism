@@ -11,9 +11,11 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -324,6 +326,7 @@ public class TicketRemarkActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
+
     private void getStatus() {
         try {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -440,9 +443,11 @@ public class TicketRemarkActivity extends AppCompatActivity implements View.OnCl
                 }
             } else
 
+             //   settingsPopup();
                 ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.CAMERA},
                         PERMISSION_CAMERA);
+
         } catch (Exception e) {
             Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
             Toast.makeText(this, "Camera Permission error", Toast.LENGTH_SHORT).show();
@@ -461,12 +466,13 @@ public class TicketRemarkActivity extends AppCompatActivity implements View.OnCl
                         // Permission is not granted
                         if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                                 Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-
+                               // settingsPopup();
                         } else {
                             // No explanation needed; request the permission
                             ActivityCompat.requestPermissions(this,
                                     new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                                     MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE);
+                           // settingsPopup();
                         }
                     }
                     else {
@@ -495,9 +501,54 @@ public class TicketRemarkActivity extends AppCompatActivity implements View.OnCl
                         builder.show();
                     }
                 }
+                else if (Build.VERSION.SDK_INT >= 23 && !shouldShowRequestPermissionRationale(permissions[0])) {
+                  // settingsPopup();
+                    // User selected the Never Ask Again Option
+                } else {
+                   // settingsPopup();
+                }
                 return;
             }
         }
+    }
+
+    private void settingsPopup() {
+
+            try {
+                android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(TicketRemarkActivity.this);
+                LayoutInflater inflater1 = (LayoutInflater) TicketRemarkActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View layout = inflater1.inflate(R.layout.settings_popup, null);
+                LinearLayout ok = layout.findViewById(R.id.quit_app_ok);
+                LinearLayout cancel =  layout.findViewById(R.id.quit_app_cancel);
+                builder.setView(layout);
+                final android.app.AlertDialog alertDialog = builder.create();
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        alertDialog.dismiss();
+                    }
+                });
+                ok.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        alertDialog.dismiss();
+                        finish();
+                        Intent i = new Intent();
+                        i.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                        i.addCategory(Intent.CATEGORY_DEFAULT);
+                        i.setData(Uri.parse("package:" + TicketRemarkActivity.this.getPackageName()));
+                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                        i.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+                        TicketRemarkActivity.this.startActivity(i);
+                    }
+                });
+                alertDialog.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
     }
 
     @Override
