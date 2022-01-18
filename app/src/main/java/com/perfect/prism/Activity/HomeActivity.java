@@ -1203,7 +1203,7 @@ public class HomeActivity extends AppCompatActivity
                         @Override public void onResponse(Call<String> call, retrofit2.Response<String> response) {
                             try {
                                 JSONObject jObject = new JSONObject(response.body());
-                                Log.i("Response",response.body());
+                                Log.i("Responsescanner",response.body());
                                 String statuscode = jObject.getString("StatusCode");
 
                                 if(statuscode.equals("0"))
