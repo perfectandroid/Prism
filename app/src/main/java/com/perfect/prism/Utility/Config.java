@@ -2,15 +2,23 @@ package com.perfect.prism.Utility;
 
 public class Config {
 
-  public static final String BASEURL  = "https://202.164.150.65:14005/api/"; //local test work
+   //QA june 2022
+
+   public static final String BASEURL  = "https://112.133.227.123:14016/PRISMAPI/api/";
+
+ // public static final String BASEURL  = "https://202.164.150.65:14005/api/"; //local test work
  // public static final String BASEURL  ="https://52.172.2.6:14001/PrismAPI/api/";//new ip(18-12-2021)
+// public static final String BASEURL  ="https://prism.perfectlimited.com/PrismAPI/api/";//new (07-02-2022)
+  //  public static final String BASEURL  = "https://prism.perfectlimited.com/Prismapi/api/";
 
-   // public static final String BASEURL  = "https://prism.perfectlimited.com/Prismapi/api/";
 
+  // public static final String IMAGE_URL    = "https://202.164.150.65:14005/UploadedAttachments/" ; // local test work
+ //  public static final String IMAGE_URL    = "https://52.172.2.6:14001/UploadedAttachments/" ; //new ip(18-12-2021)
 
-   public static final String IMAGE_URL    = "https://202.164.150.65:14005/UploadedAttachments/" ; // local test work
-  //  public static final String IMAGE_URL    = "https://52.172.2.6:14001/UploadedAttachments/" ; //new ip(18-12-2021)
-   // public static final String IMAGE_URL    = "https://prism.perfectlimited.com/Prismapi/UploadedAttachments/" ;
+//QA june 2022
+   public static final String IMAGE_URL    = "https://112.133.227.123:14016/PRISMAPI/UploadedAttachments/";
+// public static final String IMAGE_URL    = "https://prism.perfectlimited.com/PrismAPI/UploadedAttachments/" ;
+ // public static final String IMAGE_URL    = "https://prism.perfectlimited.com/Prismapi/UploadedAttachments/" ;
 
     public static final String FK_Company   = "1";
     public static final String SHARED_PREF  = "loginsession";
