@@ -96,7 +96,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    private void login(String userName ,String password) {
+    private void login(final String userName , String password) {
 
         progressDialog = new ProgressDialog(this, R.style.Progress);
         progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar);
@@ -136,6 +136,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 progressDialog.dismiss();
             }
             RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), requestObject1.toString());
+            Log.v("dfdfdddddd","body "+requestObject1.toString());
             Call<String> call = apiService.getLogin(body);
             call.enqueue(new Callback<String>() {
                 @Override
@@ -157,6 +158,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             i.putExtra("OTPRefNo", jmember.getString("OTPRefNo"));
                             i.putExtra("Agent_Name", jmember.getString("Agent_Name"));
                             i.putExtra("Token", jmember.getString("Token"));
+                            i.putExtra("userName", userName);
                             startActivity(i);
 
                         } else {

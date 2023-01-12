@@ -9,94 +9,129 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:layout_margin="10dp"
-                    android:background="@drawable/view_bg">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
+                    android:background="@drawable/view_bg"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:drawableLeft="@drawable/tickets"
-                        android:drawablePadding="5dp"
-                        android:text="Ticket No : "
-                        android:textSize="18dp"
-                        android:paddingLeft="10dp"/>
-                    <TextView
-                        android:id="@+id/tvTicketid"
-                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/tickets"
+                            android:drawablePadding="5dp"
+                            android:paddingLeft="10dp"
+                            android:text="Ticket No : "
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="18dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTicketid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:text=""
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="18dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:text=""
-                        android:textSize="18dp"
-                        android:paddingRight="10dp"/>
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/client"
+                            android:drawablePadding="5dp"
+                            android:paddingLeft="10dp"
+                            android:text="Client : "
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="18dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvCliName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:text="TKT122154"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="18dp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/id_qr"
+                        android:layout_width="wrap_content"
+                        android:layout_margin="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingRight="15dp"
+                        android:paddingLeft="15dp"
+                        android:background="@drawable/button_corner_new"
+                        android:layout_height="wrap_content">
+                    <ImageView
+                        android:src="@drawable/qrcode"
+                        android:tint="@color/white"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:gravity="center"
+                            android:textSize="18dp"
+                            android:textColor="@color/white"
+                            android:layout_marginLeft="5dp"
+                            android:layout_height="match_parent"
+                            android:text="Scan"/>
+                    </LinearLayout>
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:layout_marginBottom="25dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:drawableLeft="@drawable/client"
-                        android:drawablePadding="5dp"
-                        android:text="Client : "
-                        android:textSize="18dp"
-                        android:paddingLeft="10dp"/>
-                    <TextView
-                        android:id="@+id/tvCliName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:text="TKT122154"
-                        android:textSize="18dp"
-                        android:paddingRight="10dp"/>
-                </LinearLayout>
-                </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
                         android:drawablePadding="5dp"
-                        android:textSize="18dp"
+                        android:paddingLeft="10dp"
                         android:text="Remarks : "
-                        android:paddingLeft="10dp"/>
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
 
                     <com.perfect.prism.Utility.FullLenghtRecyclerview
                         android:id="@+id/rv_chat"
-                        android:layout_marginBottom="60dp"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="60dp" />
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>

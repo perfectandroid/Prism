@@ -88,7 +88,7 @@ public class OtpEnterActivity extends AppCompatActivity implements View.OnClickL
     String TAG="OtpEnterActivity";
     private EditText mEdtOtp;
     private Button btnSubmit;
-    private String agentId,otpRefNo,cusName,Token,stringLatitude,stringLongitude,city;
+    private String agentId,otpRefNo,cusName,Token,stringLatitude,stringLongitude,city,userName;
     private ProgressDialog progressDialog;
 //    GPSTracker gpsTracker;
 //    LocationResult locationResult;
@@ -120,6 +120,7 @@ public class OtpEnterActivity extends AppCompatActivity implements View.OnClickL
         otpRefNo = in.getStringExtra("OTPRefNo");
         cusName  = in.getStringExtra("Agent_Name");
         Token  = in.getStringExtra("Token");
+        userName  = in.getStringExtra("userName");
         btnSubmit.setOnClickListener(this);
 //        gpsTracker = new GPSTracker(this);
 //        gpsTrack();
@@ -317,6 +318,11 @@ public class OtpEnterActivity extends AppCompatActivity implements View.OnClickL
                             SharedPreferences.Editor spTokenEditor = spToken.edit();
                             spTokenEditor.putString("TOKEN", jmember.getString("AgToken"));
                             spTokenEditor.commit();
+
+                            SharedPreferences spUserName = getApplicationContext().getSharedPreferences(Config.USER_NAME, 0);
+                            SharedPreferences.Editor spUserNameEditor = spUserName.edit();
+                            spUserNameEditor.putString("user_name", userName);
+                            spUserNameEditor.commit();
 
                             gpsTracking(jmember.getString("AgToken"),jmember.getString("Agent_ID"),stringLatitude,stringLongitude,city);
 
