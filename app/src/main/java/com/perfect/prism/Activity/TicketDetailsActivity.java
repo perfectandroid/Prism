@@ -403,17 +403,22 @@ public class TicketDetailsActivity extends AppCompatActivity implements View.OnC
     private void checkData(String barcodeValue) {
         try {
             // barcodeValue="APV`TKT5264`20051";
-            Log.v("dfdfdf433rff", "ID_Tickets=" + ticket+"=");
+
             SharedPreferences sharedPreferences2 = getApplicationContext().getSharedPreferences(Config.USER_NAME, 0);
             String user_name = sharedPreferences2.getString("user_name", "");
-            Log.v("dfdfdf433rff", "user_name=" + user_name+"=");
+
             String arr[] = barcodeValue.split("`");
             String randomNumber = arr[2];
             String ticketId = arr[1];
             String userCode = arr[0];
             Log.v("dfdfdf433rff", "barcode value " + barcodeValue);
+
+
+
             Log.v("dfdfdf433rff", "ticketId=" + ticketId+"=");
+            Log.v("dfdfdf433rff", "ID_Tickets=" + ticket+"=");
             Log.v("dfdfdf433rff", "userCode+" + userCode+"=");
+            Log.v("dfdfdf433rff", "user_name=" + user_name+"=");
             if (ticketId.trim().equalsIgnoreCase(ticket.trim()) && userCode.trim().equalsIgnoreCase(user_name.trim())) {
                 String ticketNumber = ticketId.substring(3, ticketId.length());
                 String firstTwoDigits = randomNumber.substring(0, 2);
@@ -443,12 +448,12 @@ public class TicketDetailsActivity extends AppCompatActivity implements View.OnC
 
             } else {
                 Log.v("dfdfdf433rff", "else");
-                Toast.makeText(this, "Invalid Ticket", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Invalid Ticket1", Toast.LENGTH_LONG).show();
             }
         } catch (Exception e) {
             e.printStackTrace();
             Log.v("dfdfdf433rff", "e " + e);
-            Toast.makeText(this, "Invalid Ticket", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Invalid Ticket2", Toast.LENGTH_LONG).show();
         }
     }
 

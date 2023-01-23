@@ -17,6 +17,11 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" >
+
+
+
+
+
             <ImageView
                 android:id="@+id/txtvQR"
                 android:layout_width="40dp"
@@ -32,7 +37,38 @@
                 android:textStyle="bold"
                 android:gravity="center_horizontal"
                 android:layout_gravity="right"></ImageView>
+
+
+            <ImageView
+                android:id="@+id/txtRefresh"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:scaleType="fitXY"
+                android:drawablePadding="10dp"
+                android:background="@drawable/ic_refresh"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="15dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:gravity="center_horizontal"
+                android:layout_gravity="right"></ImageView>
         </android.support.v7.widget.Toolbar>
+
+            <TextView
+
+                android:gravity="right"
+                android:id="@+id/refreshTime"
+                android:text="Last Refresh:"
+                android:textColor="#F8F5F5"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </TextView>
+
+
 
 
     </android.support.design.widget.AppBarLayout>

@@ -71,7 +71,10 @@ import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -97,8 +100,8 @@ public class HomeActivity extends AppCompatActivity
 
     String TAG="HomeActivity";
     private ProgressDialog progressDialog;
-    TextView tvUsername, tvSoftwarePending, tvResolved, tvClosed, tvPending, tvOpen,tvclientSidewaiting;
-    ImageView txtvQR;
+    TextView refreshTime,tvUsername, tvSoftwarePending, tvResolved, tvClosed, tvPending, tvOpen,tvclientSidewaiting;
+    ImageView txtvQR,txtRefresh;
     LinearLayout llopen,llPending, llClosed, llresolved,llsoftwarepending,llclientSidewaiting;
     String latitude,longitude;
     protected double lattitude;
@@ -106,6 +109,7 @@ public class HomeActivity extends AppCompatActivity
     protected String locName;
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     private FusedLocationProviderClient fusedLocationClient;
+    private String reCalculate="false";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,9 +133,48 @@ public class HomeActivity extends AppCompatActivity
         SharedPreferences pref = getApplicationContext().getSharedPreferences(Config.SHARED_PREF1, 0);
         String name = "Welcome "+pref.getString("agentName", null);
         tvUsername.setText(name);
+        refreshView();
+//        SharedPreferences pref1 = getApplicationContext().getSharedPreferences(Config.SHARED_PREF7, 0);
+//        String refreshtime = "Last Refresh : "+pref1.getString("refreshtime", null);
+//        Log.v("response","time:"+refreshtime);
+//        refreshTime.setText(refreshtime);
 
 
      //   getQRcode("12345");
+
+    }
+
+    private void refreshView() {
+        SharedPreferences pref1 = getApplicationContext().getSharedPreferences(Config.SHARED_PREF7, 0);
+        String refreshtime = "Last Refresh : "+pref1.getString("refreshtime", null);
+
+        String time=pref1.getString("refreshtime", null);
+
+        if (time==null)
+        {
+            refreshTime.setVisibility(View.GONE);
+            Log.v("response","time1:"+time);
+        }
+        else
+        {
+            Log.v("response","time2::"+time);
+            refreshTime.setVisibility(View.VISIBLE);
+            refreshTime.setText(refreshtime);
+        }
+
+//        Log.v("response","time::"+time);
+//        if (refreshtime.equals(null))
+//        {
+//            Log.v("response","time:"+refreshtime);
+//            refreshTime.setText(refreshtime);
+//        }
+//        else
+//        {
+//            Log.v("response","time:"+refreshtime);
+//            refreshTime.setText(refreshtime);
+//        }
+
+
 
     }
 
@@ -180,6 +223,7 @@ public class HomeActivity extends AppCompatActivity
 //                    requestObject1.put("location_name", "Calicut");
 
                     Log.e(TAG,"requestObject1 162   "+requestObject1);
+                    Log.v("response","object=   "+requestObject1);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -217,19 +261,23 @@ public class HomeActivity extends AppCompatActivity
                                     navMenus.findItem(R.id.navTotalTicket).setVisible(false);
                                     navMenus.findItem(R.id.navAssignTicket).setVisible(false);
 
-                                } else if(jobj.getString("IsAcces").equals("True")){
+                                }
+                                else if(jobj.getString("IsAcces").equals("True"))
+                                {
                                     navMenus.findItem(R.id.navReport).setVisible(true);
                                     navMenus.findItem(R.id.navLocationReport).setVisible(true);
                                     navMenus.findItem(R.id.navLocationTracking).setVisible(true);
                                     navMenus.findItem(R.id.navTotalTicket).setVisible(true);
                                     navMenus.findItem(R.id.navAssignTicket).setVisible(true);
                                 }
-                            } else if(jObject.getString("StatusCode").equals("-1")) {
+                            } else if(jObject.getString("StatusCode").equals("-1"))
+                            {
                                 Toast.makeText( getApplicationContext(),jobj.getString("ResponseMessage") , Toast.LENGTH_LONG ).show();
                                 dologoutchanges();
                                 startActivity(new Intent(HomeActivity.this,WelcomeActivity.class));
                                 finish();
-                            }else {
+                            }else
+                            {
 
                                 navMenus.findItem(R.id.navReport).setVisible(false);
                                 navMenus.findItem(R.id.navLocationReport).setVisible(false);
@@ -260,7 +308,123 @@ public class HomeActivity extends AppCompatActivity
         }
     }
 
+    private void getRefresh() {
+        if (new InternetUtil(HomeActivity.this).isInternetOn()) {
+            try
+            {
+                progressDialog = new ProgressDialog(HomeActivity.this, R.style.Progress);
+                progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar);
+                progressDialog.setCancelable(false);
+                progressDialog.setIndeterminate(true);
+                progressDialog.setIndeterminateDrawable(this.getResources()
+                        .getDrawable(R.drawable.progress));
+                progressDialog.show();
+
+                OkHttpClient client = new OkHttpClient.Builder()
+                        .sslSocketFactory(getSSLSocketFactory())
+                        .hostnameVerifier(getHostnameVerifier())
+                        .build();
+                Gson gson = new GsonBuilder()
+                        .setLenient()
+                        .create();
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl(Config.BASEURL)
+                        .addConverterFactory(ScalarsConverterFactory.create())
+                        .addConverterFactory(GsonConverterFactory.create(gson))
+                        .client(client)
+                        .build();
+                ApiInterface apiService = retrofit.create(ApiInterface.class);
+                final JSONObject requestObject1 = new JSONObject();
+                //314400
+
+                try {
+                    SharedPreferences pref1 = getApplicationContext().getSharedPreferences(Config.SHARED_PREF3, 0);
+                    SharedPreferences pref2 = getApplicationContext().getSharedPreferences(Config.SHARED_PREF4, 0);
+
+                    requestObject1.put("AgCode",  pref1.getString("Agent_ID", null));
+                    requestObject1.put("FK_Company", Config.FK_Company);
+                    requestObject1.put("Recalculate",reCalculate );
+                    Log.v("response","refresh data=   "+requestObject1);
+                }
+
+
+                catch (Exception ee)
+                {
+                    ee.printStackTrace();
+                }
+                RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), requestObject1.toString());
+                Call<String> call = apiService.getRefreshNotificationcount(body);
+                call.enqueue(new Callback<String>() {
+                    @Override
+                    public void onResponse(Call<String> call, Response<String> response) {
+
+                        try{
+                            progressDialog.dismiss();
+                            JSONObject jObject = new JSONObject(response.body());
+                            JSONObject jobj = jObject.getJSONObject("AgentTicketNotificationInfo");
+                            if(jObject.getString("StatusCode").equals("0"))
+                            {
+                                tvPending.setText(""+jobj.getInt("Tasks"));
+                                tvOpen.setText(""+jobj.getInt("OpnTkts"));
+                                tvResolved.setText(""+jobj.getInt("SPClientReplied"));
+                                tvclientSidewaiting.setText(""+jobj.getInt("ClientSideWaiting"));
+
+                                Date date = Calendar.getInstance().getTime();
+                                SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy HH:mm a");
+                                String formattedDate = df.format(date);
+
+                                SharedPreferences logintimeSP = getApplicationContext().getSharedPreferences(Config.SHARED_PREF7, 0);
+                                SharedPreferences.Editor logintimeEditer = logintimeSP.edit();
+                                logintimeEditer.putString("refreshtime", formattedDate);
+                                logintimeEditer.commit();
+                                Log.v("response","refresh time=   "+formattedDate);
+
+//                                Intent intent=new Intent(getApplicationContext(),HomeActivity.class);
+//                                startActivity(intent);
+                                refreshView();
+                            }
+                            else if (jObject.getString("StatusCode").equals("-1"))
+                            {
+                                Toast.makeText( getApplicationContext(),jobj.getString("ResponseMessage") , Toast.LENGTH_LONG ).show();
+                            }
+
+
+                        }
+                        catch (Exception e)
+                        {
+                            Log.v("response","response catch==   "+e);
+                            e.printStackTrace();
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<String> call, Throwable t) {
+                        Log.v("response","onFailure=   "+t);
+                        progressDialog.dismiss();
+                        String g = t.toString();
+
+                    }
+                });
+
+
+            }
+            catch (Exception e)
+            {
+                progressDialog.dismiss();
+            }
+
+        }
+        else
+        {
+            Toast.makeText(this,"No internet connection",Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
+
     private void initiateViews() {
+        refreshTime=findViewById(R.id.refreshTime);
         tvSoftwarePending=findViewById(R.id.tvSoftwarePending);
         tvUsername=findViewById(R.id.tvUsername);
         tvResolved=findViewById(R.id.tvResolved);
@@ -275,6 +439,7 @@ public class HomeActivity extends AppCompatActivity
         llsoftwarepending=findViewById(R.id.llsoftwarepending);
         llclientSidewaiting=findViewById(R.id.llclientSidewaiting);
         txtvQR=findViewById(R.id.txtvQR);
+        txtRefresh=findViewById(R.id.txtRefresh);
     }
 
     private void setRegViews() {
@@ -285,6 +450,7 @@ public class HomeActivity extends AppCompatActivity
         llsoftwarepending.setOnClickListener(this);
         llclientSidewaiting.setOnClickListener(this);
         txtvQR.setOnClickListener(this);
+        txtRefresh.setOnClickListener(this);
     }
 
     @Override
@@ -650,6 +816,12 @@ public class HomeActivity extends AppCompatActivity
                 integrator.setBarcodeImageEnabled(false);
                 integrator.initiateScan();
                 break;
+
+            case R.id.txtRefresh:
+                    Toast.makeText(getApplicationContext(),"Refresh",Toast.LENGTH_SHORT).show();
+                    getRefresh();
+
+                break;
             case R.id.llClosed:
                 if(tvClosed.getText().toString().equals("0")){
                     Snackbar.make(v, "No ticket to show", Snackbar.LENGTH_LONG)
@@ -737,6 +909,7 @@ public class HomeActivity extends AppCompatActivity
                 break;
         }
     }
+
 
     public void getProductList(final String submode){
         if (new InternetUtil(this).isInternetOn()) {
@@ -1246,49 +1419,49 @@ public class HomeActivity extends AppCompatActivity
 
     }
 
-    private void alertMessage1(String msg1, final String msg2) {
-
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(HomeActivity.this);
-
-        LayoutInflater inflater =this.getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.alert_layout, null);
-        dialogBuilder.setView(dialogView);
-
-        final AlertDialog alertDialog = dialogBuilder.create();
-        TextView tv_share =  dialogView.findViewById(R.id.tv_share);
-        TextView tv_msg =  dialogView.findViewById(R.id.txt1);
-        //  TextView tv_msg2 =  dialogView.findViewById(R.id.txt2);
-        if(msg1.equals(""))
-        {
-            tv_msg.setText(msg2);
-        }
-        else
-        {
-            tv_msg.setText(msg1);
-        }
-        //      tv_msg.setText(msg1);
-        //  tv_msg2.setText(msg2);
-        TextView tv_cancel =  dialogView.findViewById(R.id.tv_cancel);
-        tv_share.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // displaypdf(msg2);
-          /*     Intent viewDownloadsIntent = new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS);
-                startActivity(viewDownloadsIntent);*/
-
-
-                alertDialog.dismiss();
-
-            }
-        });
-        tv_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                //  finishAffinity();
-
-            }
-        });
-        alertDialog.show();
-    }
+//    private void alertMessage1(String msg1, final String msg2) {
+//
+//        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(HomeActivity.this);
+//
+//        LayoutInflater inflater =this.getLayoutInflater();
+//        View dialogView = inflater.inflate(R.layout.alert_layout, null);
+//        dialogBuilder.setView(dialogView);
+//
+//        final AlertDialog alertDialog = dialogBuilder.create();
+//        TextView tv_share =  dialogView.findViewById(R.id.tv_share);
+//        TextView tv_msg =  dialogView.findViewById(R.id.txt1);
+//        //  TextView tv_msg2 =  dialogView.findViewById(R.id.txt2);
+//        if(msg1.equals(""))
+//        {
+//            tv_msg.setText(msg2);
+//        }
+//        else
+//        {
+//            tv_msg.setText(msg1);
+//        }
+//        //      tv_msg.setText(msg1);
+//        //  tv_msg2.setText(msg2);
+//        TextView tv_cancel =  dialogView.findViewById(R.id.tv_cancel);
+//        tv_share.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // displaypdf(msg2);
+//          /*     Intent viewDownloadsIntent = new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS);
+//                startActivity(viewDownloadsIntent);*/
+//
+//
+//                alertDialog.dismiss();
+//
+//            }
+//        });
+//        tv_cancel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                //  finishAffinity();
+//
+//            }
+//        });
+//        alertDialog.show();
+//    }
 }

@@ -45,6 +45,9 @@ public interface ApiInterface {
 
     @POST("agent/AgentTicketNotification")
     Call<String>getHomeNotificationcount(@Body RequestBody body);
+//314400
+    @POST("Agent/RefreshAgentTicketNotification")
+    Call<String>getRefreshNotificationcount(@Body RequestBody body);
 
     @POST("agent/TicketsCountWiseProductDets")
     Call<String>getProductDet(@Body RequestBody body);

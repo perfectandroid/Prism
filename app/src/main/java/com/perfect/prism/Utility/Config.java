@@ -22,6 +22,7 @@ public class Config {
     // public static final String IMAGE_URL    = "https://prism.perfectlimited.com/Prismapi/UploadedAttachments/" ;
 
     public static final String FK_Company = "1";
+    public static final String SHARED_PREF7 = "refreshtime";
     public static final String SHARED_PREF = "loginsession";
     public static final String SHARED_PREF1 = "agentName";
     public static final String SHARED_PREF2 = "PIN";
