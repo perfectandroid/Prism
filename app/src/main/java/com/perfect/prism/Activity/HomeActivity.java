@@ -1,5 +1,4 @@
 package com.perfect.prism.Activity;
-
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -63,6 +62,7 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.math.BigInteger;
 import java.security.KeyManagementException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
@@ -71,8 +71,10 @@ import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -104,12 +106,17 @@ public class HomeActivity extends AppCompatActivity
     ImageView txtvQR,txtRefresh;
     LinearLayout llopen,llPending, llClosed, llresolved,llsoftwarepending,llclientSidewaiting;
     String latitude,longitude;
+    String password;
     protected double lattitude;
     protected double longittude;
     protected String locName;
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     private FusedLocationProviderClient fusedLocationClient;
     private String reCalculate="false";
+    String str_char;
+    StringBuilder sb1;
+    String str_ascvalues;
+    String str_ascii;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,7 +140,7 @@ public class HomeActivity extends AppCompatActivity
         SharedPreferences pref = getApplicationContext().getSharedPreferences(Config.SHARED_PREF1, 0);
         String name = "Welcome "+pref.getString("agentName", null);
         tvUsername.setText(name);
-        refreshView();
+         refreshView();
 //        SharedPreferences pref1 = getApplicationContext().getSharedPreferences(Config.SHARED_PREF7, 0);
 //        String refreshtime = "Last Refresh : "+pref1.getString("refreshtime", null);
 //        Log.v("response","time:"+refreshtime);
@@ -361,6 +368,7 @@ public class HomeActivity extends AppCompatActivity
                         try{
                             progressDialog.dismiss();
                             JSONObject jObject = new JSONObject(response.body());
+                            Log.v("response refresh","data=   "+response.body());
                             JSONObject jobj = jObject.getJSONObject("AgentTicketNotificationInfo");
                             if(jObject.getString("StatusCode").equals("0"))
                             {
@@ -529,8 +537,13 @@ public class HomeActivity extends AppCompatActivity
             integrator.setBarcodeImageEnabled(false);
             integrator.initiateScan();
 
-        }else if (id == R.id.navPinchange) {
+        }
+        else if (id == R.id.navPinchange) {
             callChangePinDialog();
+        }
+
+        else if (id == R.id.txtv_pswdgen) {
+           pswdgen();
         } else if (id == R.id.navLogout) {
             doLogout();
         }else if (id == R.id.navQuit) {
@@ -541,6 +554,133 @@ public class HomeActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    private void pswdgen() {
+        DateFormat formatter = new SimpleDateFormat("ddMMyyyy");
+        Calendar obj = Calendar.getInstance();
+        String str = formatter.format(obj.getTime());
+        int num = Integer.valueOf(str);
+        System.out.println("Num: "+num );
+        getSum(num);
+        System.out.println("Addition"+getSum(num));
+        int num1=getSum(num);
+        getSum1(num1);
+        int num2=getSum1(num1);
+        System.out.println("Addition2 "+num2);
+        String numval = String.valueOf(getSum1(num1));
+        System.out.println("Numbers "+ numval);
+
+
+        try
+        {
+            SharedPreferences sharedPreferences2 = getApplicationContext().getSharedPreferences(Config.USER_NAME, 0);
+            String name = sharedPreferences2.getString("user_name", "");
+
+
+          //  String name ="Prayag";
+            StringBuilder sb = new StringBuilder();
+            sb1 = new StringBuilder();
+
+            for (char c : name.toCharArray())
+            {
+                int d=c;
+                int sumascii=c+num2;
+                sb1.append(sumascii+" ");
+                sb.append((int)c+" ");
+            }
+            System.out.println("ASCII value of name1 "+sb);
+            System.out.println("ASCII value of names "+sb1);
+
+        }   catch(NumberFormatException e)
+        {
+            System.out.println("Exception"+e.toString());
+        }
+
+        str_ascvalues=sb1.toString();
+        str_ascvalues=str_ascvalues.replace(" ", "");
+
+
+        if (!numval.isEmpty()) {
+            char c = numval.charAt(0);
+            if (c%2==0)
+            {
+                str_char="#";
+
+
+                // Toast.makeText(HomeActivity.this, c + " is even", Toast.LENGTH_LONG).show();
+            }
+
+            else
+            {
+                str_char="@";
+                //Toast.makeText(HomeActivity.this, c + " is odd.", Toast.LENGTH_LONG).show();
+            }
+            password=str_char+str_ascvalues;
+            System.out.println("PASSWORD "+password);
+
+
+            showPasswd(password);
+
+        }
+
+
+    }
+
+    private void showPasswd(String password) {
+
+
+            try {
+                android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(HomeActivity.this);
+                LayoutInflater inflater1 = (LayoutInflater) HomeActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View layout = inflater1.inflate(R.layout.activity_pass, null);
+                LinearLayout ok = layout.findViewById(R.id.ll_ok);
+                TextView txtv_pass=layout.findViewById(R.id.txtv_pass);
+                txtv_pass.setText("Password: "+password);
+               // LinearLayout cancel =  layout.findViewById(R.id.quit_app_cancel);
+                builder.setView(layout);
+                final android.app.AlertDialog alertDialog = builder.create();
+
+                ok.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        alertDialog.dismiss();
+                        finish();
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                            finishAffinity();
+                        }
+                    }
+                });
+                alertDialog.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+
+    }
+
+    private int getSum1(int num1) {
+        int sum1;
+
+        /* Single line that calculates sum */
+        for (sum1 = 0; num1 > 0; sum1 += num1 % 10,
+                num1 /= 10);
+
+        return sum1;
+
+    }
+
+    private int getSum(int num) {
+
+        int sum;
+
+        /* Single line that calculates sum */
+        for (sum = 0; num > 0; sum += num % 10,
+                num /= 10);
+
+        return sum;
+    }
+
 
     private void getReport() {
         try {

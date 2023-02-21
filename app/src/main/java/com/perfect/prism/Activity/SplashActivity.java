@@ -1,5 +1,4 @@
 package com.perfect.prism.Activity;
-
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -18,33 +17,16 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Window;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.perfect.prism.Utility.Config;
-import com.perfect.prism.Retrofit.ApiInterface;
 import android.view.WindowManager;
-
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.perfect.prism.R;
-
 import android.location.Location;
 import android.app.AlertDialog;
 
-import org.json.JSONObject;
-
 import java.io.IOException;
-import java.io.InputStream;
-import java.security.KeyManagementException;
-import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.Certificate;
-import java.security.cert.CertificateException;
-import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
 import java.util.List;
 import java.util.Locale;
 
@@ -66,6 +48,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);

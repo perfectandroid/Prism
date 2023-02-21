@@ -1,5 +1,4 @@
 package com.perfect.prism.Activity;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -26,7 +25,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -116,11 +114,13 @@ public class OtpEnterActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_otp_enter);
         initialisation();
         Intent in = getIntent();
+
         agentId  = in.getStringExtra("Agent_ID");
         otpRefNo = in.getStringExtra("OTPRefNo");
         cusName  = in.getStringExtra("Agent_Name");
         Token  = in.getStringExtra("Token");
         userName  = in.getStringExtra("userName");
+
         btnSubmit.setOnClickListener(this);
 //        gpsTracker = new GPSTracker(this);
 //        gpsTrack();
@@ -287,7 +287,7 @@ public class OtpEnterActivity extends AppCompatActivity implements View.OnClickL
                 public void onResponse(Call<String> call, Response<String> response) {
                     try {
                         progressDialog.dismiss();
-                        Log.e(TAG,"onResponse    "+response.body()   );
+                        Log.e(TAG,"onResponse  OTP  "+response.body()   );
                         JSONObject jObject = new JSONObject(response.body());
                         JSONObject jmember = jObject.getJSONObject("verInfo");
                         String StatusCode = jObject.getString("StatusCode");

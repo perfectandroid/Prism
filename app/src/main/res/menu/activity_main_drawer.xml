@@ -32,6 +32,11 @@
             android:id="@+id/scanqr"
             android:icon="@drawable/qrblack"
             android:title="Scan &amp; Proceed" />
+
+        <item
+            android:id="@+id/txtv_pswdgen"
+            android:icon="@drawable/ic_password"
+            android:title="Password Generation" />
     </group>
 
     <item android:title="Account">

@@ -13,17 +13,12 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.perfect.prism.R;
 import com.perfect.prism.Retrofit.ApiInterface;
 import com.perfect.prism.Utility.Config;
-
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.KeyManagementException;
@@ -34,7 +29,6 @@ import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
-
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
@@ -42,7 +36,6 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
-
 import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
 import retrofit2.Call;

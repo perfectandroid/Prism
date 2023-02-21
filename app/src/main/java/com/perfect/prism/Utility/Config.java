@@ -6,14 +6,25 @@ public class Config {
 
 //    public static final String BASEURL  = "https://112.133.227.123:14016/PRISMAPI/api/";
 
-    public static final String BASEURL = "https://202.164.150.65:14005/api/"; //local test work
+    //VAS
+    public static final String BASEURL = "https://prism.perfectlimited.com/Prismapi/api/"; //local test work
+    public static final String IMAGE_URL = "https://prism.perfectlimited.com/Prismapi/UploadedAttachments/";
+
+
+
+
+//DEVELOPMENT AND QA 2023
+  /*  public static final String BASEURL = "https://202.164.150.65:14005/api/"; //local test work
+    public static final String IMAGE_URL = "https://202.164.150.65:14005/UploadedAttachments/"; // local test work*/
+
+
 
     // public static final String BASEURL  ="https://52.172.2.6:14001/PrismAPI/api/";//new ip(18-12-2021)
 // public static final String BASEURL  ="https://prism.perfectlimited.com/PrismAPI/api/";//new (07-02-2022)
     //  public static final String BASEURL  = "https://prism.perfectlimited.com/Prismapi/api/";
 
 
-    public static final String IMAGE_URL = "https://202.164.150.65:14005/UploadedAttachments/"; // local test work
+
     //  public static final String IMAGE_URL    = "https://52.172.2.6:14001/UploadedAttachments/" ; //new ip(18-12-2021)
 
 //QA june 2022
