@@ -408,8 +408,11 @@ public class TicketDetailsActivity extends AppCompatActivity implements View.OnC
             if (ticketId.trim().equalsIgnoreCase(ticket.trim()) && userCode.trim().equalsIgnoreCase(user_name.trim())) {
                 String ticketNumber = ticketId.substring(3, ticketId.length());
                 String firstTwoDigits = randomNumber.substring(0, 2);
+                Log.v("dfdfdf433rff", "firstTwoDigits=" + firstTwoDigits+"=");
                 String lastTwoDigits = randomNumber.substring(randomNumber.length() - 2, randomNumber.length());
+                Log.v("dfdfdf433rff", "lastTwoDigits=" + lastTwoDigits+"=");
                 String sum1 = "" + (Integer.parseInt(firstTwoDigits) + Integer.parseInt(lastTwoDigits));
+                Log.v("dfdfdf433rff", "sum1=" + sum1+"=");
                 String firstTwoDigitsSum1 = sum1.substring(0, 2);
                 int firstTwoDigitsSum1Int = Integer.parseInt(firstTwoDigitsSum1);
                 int sumWithTicket = firstTwoDigitsSum1Int;
@@ -422,15 +425,11 @@ public class TicketDetailsActivity extends AppCompatActivity implements View.OnC
                     tktvalue = "" + tktvalueInt;
                 }
                 code = "" + sumWithTicket;
-                showAlert("" + sumWithTicket);
-                Log.v("dfdfdf433rff", "barcode value " + barcodeValue);
-                Log.v("dfdfdf433rff", "ticketId " + ticketId);
-                Log.v("dfdfdf433rff", "ticketNumber " + ticketNumber);
-                Log.v("dfdfdf433rff", "randomNumber " + randomNumber);
-                Log.v("dfdfdf433rff", "firstTwoDigits " + firstTwoDigits);
-                Log.v("dfdfdf433rff", "lastTwoDigits " + lastTwoDigits);
-                Log.v("dfdfdf433rff", "sum1 " + sum1);
-                Log.v("dfdfdf433rff", "sumWithTicket " + sumWithTicket);
+                //showAlert("" + sumWithTicket);
+                Intent in=new Intent(TicketDetailsActivity.this,AlertActivity.class);
+                in.putExtra("code",code);
+                startActivity(in);
+
 
             } else {
                 Log.v("dfdfdf433rff", "else");

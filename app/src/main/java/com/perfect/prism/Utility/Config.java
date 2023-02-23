@@ -14,8 +14,8 @@ public class Config {
 
 
 //DEVELOPMENT AND QA 2023
-  /*  public static final String BASEURL = "https://202.164.150.65:14005/api/"; //local test work
-    public static final String IMAGE_URL = "https://202.164.150.65:14005/UploadedAttachments/"; // local test work*/
+//    public static final String BASEURL = "https://202.164.150.65:14005/api/"; //local test work
+//    public static final String IMAGE_URL = "https://202.164.150.65:14005/UploadedAttachments/"; // local test work
 
 
 
