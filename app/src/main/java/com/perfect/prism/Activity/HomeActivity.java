@@ -72,6 +72,8 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.text.DateFormat;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -604,7 +606,7 @@ public class HomeActivity extends AppCompatActivity
             char c = numval.charAt(0);
             if (c%2==0)
             {
-                str_char="#";
+                str_char="@";
 
 
                 // Toast.makeText(HomeActivity.this, c + " is even", Toast.LENGTH_LONG).show();
@@ -612,19 +614,51 @@ public class HomeActivity extends AppCompatActivity
 
             else
             {
-                str_char="@";
+                str_char="#";
                 //Toast.makeText(HomeActivity.this, c + " is odd.", Toast.LENGTH_LONG).show();
             }
-            password=str_char+str_ascvalues;
-            System.out.println("PASSWORD "+password);
 
+
+            System.out.println("PASSWORD "+password);
+            try {
+                int nums= NumberFormat.getInstance().parse(str_ascvalues).intValue();
+                StringBuilder sb = new StringBuilder();
+                for(int i=0;i<str_ascvalues.length();i++) {
+                    char ch = str_ascvalues.charAt(i);
+                    sb.append((char)(ch+16));
+
+                }
+                String data =sb.toString();
+                data = data.replaceAll("[^a-zA-Z0-9]", "0");
+                System.out.println("NUMS :"+data);
+                password=str_char+data;
+
+
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+          /*  try
+            {
+                Integer a = Integer.valueOf(str_ascvalues);
+                char b = (char)(a + '0');
+                System.out.println("CHAR :"+b);
+            }
+            catch(NumberFormatException e)
+            {
+                e.printStackTrace();
+                Log.i("TAG","CHAR"+e.toString());
+            }
+*/
 
             showPasswd(password);
+
 
         }
 
 
     }
+
+
 
     private void showPasswd(String password) {
 
