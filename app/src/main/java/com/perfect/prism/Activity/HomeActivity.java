@@ -578,8 +578,10 @@ public class HomeActivity extends AppCompatActivity
             SharedPreferences sharedPreferences2 = getApplicationContext().getSharedPreferences(Config.USER_NAME, 0);
             String name = sharedPreferences2.getString("user_name", "");
 
+            Log.i("NAME",name);
 
-          //  String name ="Prayag";
+
+           // String name ="ANURAG";
             StringBuilder sb = new StringBuilder();
             sb1 = new StringBuilder();
 
