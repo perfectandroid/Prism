@@ -563,23 +563,28 @@ public class HomeActivity extends AppCompatActivity
         String str = formatter.format(obj.getTime());
         int num = Integer.valueOf(str);
         System.out.println("Num: "+num );
+        Log.e(TAG,"6071  num  "+num);
         getSum(num);
         System.out.println("Addition"+getSum(num));
+        Log.e(TAG,"6072  Addition  "+getSum(num));
         int num1=getSum(num);
         getSum1(num1);
         int num2=getSum1(num1);
         System.out.println("Addition2 "+num2);
+        Log.e(TAG,"6073 Addition2   "+num2);
         String numval = String.valueOf(getSum1(num1));
         System.out.println("Numbers "+ numval);
+        Log.e(TAG,"6074  numval  "+numval);
 
 
         try
         {
             SharedPreferences sharedPreferences2 = getApplicationContext().getSharedPreferences(Config.USER_NAME, 0);
-            String name = sharedPreferences2.getString("user_name", "");
+            String name1 = sharedPreferences2.getString("user_name", "");
+            String name = name1.toUpperCase();
 
-
-          //  String name ="Prayag";
+            Log.e(TAG,"607543    "+name);
+//             name ="RAGESH";
             StringBuilder sb = new StringBuilder();
             sb1 = new StringBuilder();
 
@@ -603,7 +608,10 @@ public class HomeActivity extends AppCompatActivity
 
 
         if (!numval.isEmpty()) {
-            char c = numval.charAt(0);
+            int c = Integer.parseInt(numval);
+            Log.e(TAG,"6075    "+numval.length());
+            Log.e(TAG,"60751    "+numval.toCharArray());
+            Log.e(TAG,"6076    "+c);
             if (c%2==0)
             {
                 str_char="@";
@@ -632,6 +640,8 @@ public class HomeActivity extends AppCompatActivity
                 data = data.replaceAll("[^a-zA-Z0-9]", "0");
                 System.out.println("NUMS :"+data);
                 password=str_char+data;
+
+                Log.e(TAG,"6077  password  "+password);
 
 
             } catch (ParseException e) {

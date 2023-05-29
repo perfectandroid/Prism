@@ -91,6 +91,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void login(final String userName , String password) {
 
+
         progressDialog = new ProgressDialog(this, R.style.Progress);
         progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar);
         progressDialog.setCancelable(false);

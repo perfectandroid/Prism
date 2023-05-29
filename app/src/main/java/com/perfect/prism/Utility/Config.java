@@ -14,14 +14,15 @@ public class Config {
 
 
 //DEVELOPMENT AND QA 2023
-    public static final String BASEURL = "https://202.164.150.65:14005/api/"; //local test work
-    public static final String IMAGE_URL = "https://202.164.150.65:14005/UploadedAttachments/"; // local test work
+
+//    public static final String BASEURL = "https://202.164.150.65:14005/api/"; //local test work
+//    public static final String IMAGE_URL = "https://202.164.150.65:14005/UploadedAttachments/"; // local test work
 
 
 
     // public static final String BASEURL  ="https://52.172.2.6:14001/PrismAPI/api/";//new ip(18-12-2021)
-// public static final String BASEURL  ="https://prism.perfectlimited.com/PrismAPI/api/";//new (07-02-2022)
-    //  public static final String BASEURL  = "https://prism.perfectlimited.com/Prismapi/api/";
+
+//      public static final String BASEURL  = "https://prism.perfectlimited.com/Prismapi/api/";
 
 
 
@@ -29,8 +30,10 @@ public class Config {
 
 //QA june 2022
 //   public static final String IMAGE_URL    = "https://112.133.227.123:14016/PRISMAPI/UploadedAttachments/";
-// public static final String IMAGE_URL    = "https://prism.perfectlimited.com/PrismAPI/UploadedAttachments/" ;
-    // public static final String IMAGE_URL    = "https://prism.perfectlimited.com/Prismapi/UploadedAttachments/" ;
+//     public static final String IMAGE_URL    = "https://prism.perfectlimited.com/Prismapi/UploadedAttachments/" ;
+
+   public static final String BASEURL  ="https://prism.perfectlimited.com/PrismAPI/api/";//[26-05-2026  LIVE SUPPORT]
+   public static final String IMAGE_URL    = "https://prism.perfectlimited.com/PrismAPI/UploadedAttachments/" ; //[26-05-2026  LIVE SUPPORT]
 
     public static final String FK_Company = "1";
     public static final String SHARED_PREF7 = "refreshtime";
